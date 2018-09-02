@@ -151,7 +151,7 @@ for a1 in range(0,a):
     sy=sy+3
 pygame.display.flip()
 
-
+pygame.display.set_caption("Epic 6D minesweeper")
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
@@ -167,7 +167,7 @@ while 1:
                                         if recs[x1][x2][x3][x4][x5][x6].left<=clil and clil<recs[x1][x2][x3][x4][x5][x6].left+tileWidth and recs[x1][x2][x3][x4][x5][x6].top<=clih and clih<recs[x1][x2][x3][x4][x5][x6].top+tileWidth and openTiles[x1][x2][x3][x4][x5][x6]==-1:
                                             if event.button==1:
                                                 if Matrix[x1][x2][x3][x4][x5][x6]==1:
-                                                    print('You loose!')
+                                                    print('You lose!')
                                                     sys.exit()
                                                 else:
                                                     openTile(x1,x2,x3,x4,x5,x6)
