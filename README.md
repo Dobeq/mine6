@@ -1,2 +1,3 @@
 # mine6
-Code for six dimentional minesweeper
+This repo contains code for six dimentional minesweeper.
+run `python mine6.py` to play the game.
