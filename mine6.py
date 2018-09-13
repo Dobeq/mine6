@@ -118,11 +118,13 @@ def openTile(x1,x2,x3,x4,x5,x6):
 
 def mark(x1,x2,x3,x4,x5,x6):
     openTiles[x1][x2][x3][x4][x5][x6]=-2
+    global marked
     marked+=1
     pygame.draw.rect(screen,markColour,(recs[x1][x2][x3][x4][x5][x6].left,recs[x1][x2][x3][x4][x5][x6].top,tileWidth,tileWidth))
 
 def unmark(x1,x2,x3,x4,x5,x6):
     openTiles[x1][x2][x3][x4][x5][x6]=-1
+    global marked
     marked-=1
     pygame.draw.rect(screen,tileColour,(recs[x1][x2][x3][x4][x5][x6].left,recs[x1][x2][x3][x4][x5][x6].top,tileWidth,tileWidth))
 
