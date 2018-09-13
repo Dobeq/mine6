@@ -22,11 +22,11 @@ openTiles = [[[[[[-1 for x in range(a)] for y in range(b)]for z in range(c)]for 
 
 pygame.font.init() # you have to call this at the start,
                    # if you want to use this module.
-myfont = pygame.font.SysFont('Comic Sans MS', 20)
+myfont = pygame.font.SysFont('dejavusans', 20)
 myfont.set_bold(1)
 
 def printNum(x1,x2,x3,x4,x5,x6):
-    new_game_text = myfont.render(str(openTiles[x1][x2][x3][x4][x5][x6]), False, (30, 170, 30))
+    new_game_text = myfont.render(str(openTiles[x1][x2][x3][x4][x5][x6]), True, (30, 170, 30))
     new_game_rect = new_game_text.get_rect(center=recs[x1][x2][x3][x4][x5][x6].center)
     screen.blit(new_game_text, new_game_rect)
 
