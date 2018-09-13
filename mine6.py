@@ -231,7 +231,7 @@ high = [-1]*6
 pygame.display.set_caption("Epic 6D minesweeper")
 while 1:
     for event in pygame.event.get():
-        if event.type == pygame.QUIT: sys.exit()
+        if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE): sys.exit()
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if event.button==1 or event.button==2 or event.button==3:
                 clil,clih=event.pos
