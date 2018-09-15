@@ -7,7 +7,7 @@ screen = pygame.display.set_mode(size)
 tileColour = 144,144,144
 openColour = 100,100,100
 markColour = 144,20,144
-highColour = 60,144,80
+highColour = 0,200,200
 block=pygame.Surface((10,10))
 recs=[]
 x0,y0=int((width-(tileWidth+1)*f*e*d-e*d*2-d*3+6)/2),4
@@ -25,6 +25,10 @@ pygame.font.init() # you have to call this at the start,
 myfont = pygame.font.SysFont('dejavusans', 20)
 myfont.set_bold(1)
 
+def AkselExit():
+    pygame.quit()
+    sys.exit()
+    
 def printNum(x1,x2,x3,x4,x5,x6):
     new_game_text = myfont.render(str(openTiles[x1][x2][x3][x4][x5][x6]), True, (30, 170, 30))
     new_game_rect = new_game_text.get_rect(center=recs[x1][x2][x3][x4][x5][x6].center)
@@ -233,7 +237,8 @@ high = [-1]*6
 pygame.display.set_caption("Epic 6D minesweeper")
 while 1:
     for event in pygame.event.get():
-        if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE): sys.exit()
+        if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE): 
+            AkselExit()
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if event.button==1 or event.button==2 or event.button==3:
                 clil,clih=event.pos
@@ -243,12 +248,12 @@ while 1:
                 if event.button==1 and openTiles[x1][x2][x3][x4][x5][x6] == -1:
                     if Matrix[x1][x2][x3][x4][x5][x6]==1:
                         print('You lose!')
-                        sys.exit()
+                        AkselExit()
                     else:
                         openTile(x1,x2,x3,x4,x5,x6)
                         if closedTiles==bombs:
                             print('You won!')
-                            sys.exit()
+                            AkselExit()
                         pygame.display.flip()
                 elif event.button==3 and openTiles[x1][x2][x3][x4][x5][x6] == -1:
                     mark(x1,x2,x3,x4,x5,x6)
